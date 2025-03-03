@@ -2,7 +2,6 @@ from vehicle import Vehicle
 from car import Car
 from motorcycle import Motorcycle
 
-
 def show_vehicle_info(vehicle: Vehicle):
     vehicle.display_info()
 
