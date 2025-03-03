@@ -1,7 +1,6 @@
-from vehicle import Vehicle
+from models.vehicle import Vehicle
 
 class Car(Vehicle):
-
     def __init__(
             self,
             brand: str,

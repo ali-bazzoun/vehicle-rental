@@ -1,6 +1,6 @@
-from vehicle import Vehicle
-from car import Car
-from motorcycle import Motorcycle
+from models.vehicle import Vehicle
+from models.car import Car
+from models.motorcycle import Motorcycle
 
 def show_vehicle_info(vehicle: Vehicle):
     vehicle.display_info()
@@ -10,10 +10,8 @@ def show_rental_cost(vehicle: Vehicle, rental_days: int):
 
 def update_rental_price(vehicle: Vehicle, rental_price: float):
     vehicle.set_rental_price_per_day(rental_price)
-
-def show_updated_rental_price(vehicle: Vehicle):
-    print(f"Updated rental price for {vehicle.info[0]}: ${vehicle.get_rental_price_per_day():.1f}/day")
-
+    print(f"Updated rental price for {vehicle.info[0]}: ${round(vehicle.get_rental_price_per_day())}/day")
+    
 def main():
 
     car = Car("Toyota", "Corolla", 2019, 50.0, 5)
@@ -34,8 +32,7 @@ def main():
     updates = [60.0, 45.0]
 
     for vehicle, price in zip(vehicles, updates):
-        update_rental_price(vehicle, price) # update rental price
-        show_updated_rental_price(vehicle)  # show updated rental price
+        update_rental_price(vehicle, price) # update and print new rental price
 
 
 if __name__ == "__main__":
