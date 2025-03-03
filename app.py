@@ -18,11 +18,24 @@ def main():
 
     for vehicle in vehicles:
         show_vehicle_info(vehicle)
+    print()
 
     rental_duration = [3,5]
 
     for vehicle, rental_days in zip(vehicles, rental_duration):
         show_rental_cost(vehicle, rental_days)
+    print()
+
+    update_message = "Updated rental price for {brand_model}: ${price:.1f}/day"
+
+    car.set_rental_price_per_day(60.0)
+    motorcycle.set_rental_price_per_day(45.0)
+
+    for vehicle in vehicles:
+        print(update_message.format(
+            brand_model=vehicle.info[0],
+            price=vehicle.get_rental_price_per_day()
+        ))
 
 
 if __name__ == "__main__":
