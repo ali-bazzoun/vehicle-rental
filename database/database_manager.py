@@ -20,15 +20,16 @@ def create_table():
     query = ("""--sql
         CREATE TABLE IF NOT EXISTS vehicles (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            type TEXT CHECK(type IN ('Car', 'Motorcycle')),
-            brand TEXT,
-            model TEXT,
-            year INTEGER,
-            rental_price_per_day REAL,
-            seating_capacity INTEGER, 
-            engine_capacity INTEGER
+            type TEXT NOT NULL,
+            brand TEXT NOT NULL,
+            model TEXT NOT NULL,
+            year INTEGER NOT NULL,
+            rental_price_per_day REAL NOT NULL,
+            seating_capacity INTEGER,
+            engine_capacity INTEGER,
+            UNIQUE (brand, model, year)
         )
     """)
-    execute_query(query)
+    execute_query(query, commit=True)
 
 create_table()
