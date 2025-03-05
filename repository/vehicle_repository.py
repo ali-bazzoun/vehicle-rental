@@ -3,7 +3,8 @@ from models import Car
 from models import Motorcycle
 
 class VehicleRepository:
-    def save_vehicle(self, vehicle: Car | Motorcycle) -> Car | Motorcycle | None: 
+    def save_vehicle(self, vehicle: Car | Motorcycle) -> Car | Motorcycle | None:
+        
         if isinstance(vehicle, Car):
             type_ = 'Car'
             seating = vehicle.seating_capacity
